@@ -9,7 +9,7 @@ export const postsApi = createApi({
             query: (searchTerm) => ({
                 url: `.json`,
                 params: {
-                    q: 'searchTerm',
+                    q: searchTerm,
                     type: 'link',
                     sort: "top",
                 }
