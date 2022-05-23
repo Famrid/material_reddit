@@ -9,7 +9,7 @@ export const Posts = () => {
     let searchTerm;
     const defaultSearch = 'cat';
     let { searchId } = useParams();
-    searchId === true ? searchTerm = searchId : searchTerm = defaultSearch;
+    searchId !== false ? searchTerm = searchId : searchTerm = defaultSearch;
 
 
     const { data, isFetching, isLoading } = useFetchPostsQuery(searchTerm, {refetchOnMountOrArgChange: true});
