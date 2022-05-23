@@ -32,7 +32,7 @@ function SearchBar () {
             id="search-bar"
             type="search"
             label="Search Field"
-            variant="filled"
+            variant="outlined"
             color="secondary"
             InputProps= {{
                 endAdornment: <SearchIcon />

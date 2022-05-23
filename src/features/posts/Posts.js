@@ -9,7 +9,7 @@ export const Posts = () => {
     let searchTerm;
     const defaultSearch = 'cat';
     let { searchId } = useParams();
-    searchId !== false ? searchTerm = searchId : searchTerm = defaultSearch;
+    searchId ? searchTerm = searchId : searchTerm = defaultSearch;
 
 
     const { data, isFetching, isLoading } = useFetchPostsQuery(searchTerm, {refetchOnMountOrArgChange: true});
@@ -32,7 +32,8 @@ export const Posts = () => {
                 thumbnailWidth={dataItems.data.thumbnail_width}
                 author={dataItems.data.author}
                 numComment={dataItems.data.num_comments}
-                score={dataItems.data.score} />
+                score={dataItems.data.score}
+                id={dataItems.data.id} />
                 
         })
         return (

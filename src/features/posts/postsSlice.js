@@ -3,11 +3,11 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 export const postsApi = createApi({
     reducerPath: 'postsApi',
-    baseQuery: fetchBaseQuery({ baseUrl: 'https://www.reddit.com/search/'}),
+    baseQuery: fetchBaseQuery({ baseUrl: 'https://www.reddit.com/'}),
     endpoints: (builder) => ({
         fetchPosts: builder.query({
             query: (searchTerm) => ({
-                url: `.json`,
+                url: `search/.json`,
                 params: {
                     q: searchTerm,
                     type: 'link',
@@ -15,7 +15,12 @@ export const postsApi = createApi({
                 }
             }),
         }),
+        fetchComments: builder.query({
+            query: (postId) => ({
+                url: `comments/${postId}/.json`,
+            }),
+        }),
     }),
 })
 
-export const {useFetchPostsQuery} = postsApi;
+export const {useFetchPostsQuery, useFetchCommentsQuery} = postsApi;

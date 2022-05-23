@@ -12,6 +12,7 @@ import {
 import CommentIcon from "@mui/icons-material/Comment";
 import RecommendIcon from "@mui/icons-material/Recommend";
 import { Box } from "@mui/system";
+import { Link } from "react-router-dom";
 
 export const Post = (props) => {
   const {
@@ -22,6 +23,7 @@ export const Post = (props) => {
     thumbnailWidth,
     numComment,
     score,
+    id,
   } = props;
 
   return (
@@ -35,7 +37,7 @@ export const Post = (props) => {
       direction="row"
     >
       <Card raised sx={{ width: "100%", borderRadius: "35px" }}>
-        <CardActionArea>
+        <CardActionArea component={Link} to={`/comments/${id}`} >
           <Grid item xs={12}>
             <Chip avatar={<Avatar>{author[0]}</Avatar>} label={author} />
             <Chip label={subReddit} />
